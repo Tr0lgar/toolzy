@@ -1,0 +1,29 @@
+{
+  "name": "toolzy",
+  "version": "0.1.0",
+  "description": "A lightweight utility toolkit for JS/TS projects.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "keywords": ["utils", "toolkit", "typescript", "random", "string", "helpers"],
+  "author": "tr0lgar",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsup": "^7.0.0",
+    "typescript": "^5.5.3",
+    "vitest": "^1.0.0"
+  },
+  "private": true
+}
