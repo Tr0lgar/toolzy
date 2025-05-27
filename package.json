@@ -15,6 +15,11 @@
   "keywords": ["utils", "toolkit", "typescript", "random", "string", "helpers"],
   "author": "tr0lgar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tr0lgar/toolzy.git"
+  },
+  "files": ["dist"],
   "scripts": {
     "build": "tsup",
     "test": "vitest"
@@ -25,5 +30,5 @@
     "typescript": "^5.5.3",
     "vitest": "^1.0.0"
   },
-  "private": true
+  "private": false
 }
