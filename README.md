@@ -81,7 +81,7 @@ Using npm:
    > npm install toolzy
    ```
 2. Import the methods needed in you project files:  
-    For exemple :
+    For example:
     ```ts
     import { randomInt } from 'toolzy';
    
