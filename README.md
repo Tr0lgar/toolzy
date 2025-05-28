@@ -2,10 +2,10 @@
   <img height="200" src="toolzy-logo.png"/>
 </div>
 
-<h1 align="center">TOOLZY</h1>,
-<p align="center"><i>Streamline your code, elevate your productivity.</i></p>,
-<p align="center"><i>Build with tools and technologies :</i></p>,
-<div align="center">,
+<h1 align="center">TOOLZY</h1>
+<p align="center"><i>Streamline your code, elevate your productivity.</i></p>
+<p align="center"><i>Build with tools and technologies :</i></p>
+<div align="center">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge" height="30" alt="typescript logo"  />
   <img width="12" />
   <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge" height="30" alt="vite logo"  />
