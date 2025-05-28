@@ -4,32 +4,26 @@ A personal utility toolkit for JavaScript/TypeScript — reusable, simple, and r
 
 ---
 
-# 📁 Modules
-## 🔢 Random Utilities
-> All random-related functions.
+## 📚 Documentation
 
-- `randomInt(min: number, max: number): number`  
-Returns a random integer between min and max (inclusive).
+Documentation will be available soon.
 
----
+## 🚀 Installation
 
-## 🔤 String Utilities
-> All string-related functions.
+```bash
+npm install toolzy
+```
 
-- `capitalizeFirst(str: string): string`  
-Capitalizes the first character of a string.
-- `slugify(str: string): string`  
-Converts a string into a URL-safe slug.
+## 💡 Usage
+```ts
+import { randomInt, capitalizeFirst, shuffleArray } from 'toolzy';
 
---- 
+const number = randomInt(1, 10);
+const text = capitalizeFirst('bonjour'); 
+const array = shuffle([1, 2, 3, 4, 5]);
 
-## #️⃣ Array Utilities
-> All array-related functions.
+```
 
-- `shuffle<T>(arr: T[]): T[]`  
-Shuffles an array.
-
----
 
 # 🧪 Testing
 This project uses [Vitest](https://vitest.dev/) for unit tests.
@@ -37,17 +31,6 @@ This project uses [Vitest](https://vitest.dev/) for unit tests.
 To run test :
 ```bash
 npm run test
-```
-
----
-
-# 🚀 Build
-
-The project is bundled using [tsup](https://tsup.egoist.dev/).
-
-To build:
-```bash
-npm run build
 ```
 
 ---
