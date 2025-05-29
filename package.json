@@ -12,22 +12,32 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "keywords": ["utils", "toolkit", "typescript", "random", "string", "helpers"],
+  "keywords": [
+    "utils",
+    "toolkit",
+    "typescript",
+    "random",
+    "string",
+    "helpers"
+  ],
   "author": "tr0lgar",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Tr0lgar/toolzy.git"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
-    "test": "vitest"
+    "test": "vitest",
+    "generate-doc": "node --loader ts-node/esm scripts/generate-doc-html.mts"
   },
-  "dependencies": {},
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "tsup": "8.3.5",
-    "typescript": "^5.5.3",
+    "typescript": "^5.8.3",
     "vitest": "^1.0.0"
   },
   "private": false
