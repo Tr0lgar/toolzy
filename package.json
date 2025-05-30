@@ -26,6 +26,7 @@
     "type": "git",
     "url": "https://github.com/Tr0lgar/toolzy.git"
   },
+  "homepage": "https://tr0lgar.github.io/toolzy-doc/",
   "files": [
     "dist"
   ],

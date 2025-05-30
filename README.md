@@ -13,6 +13,16 @@
   <img src="https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white&style=for-the-badge" height="30" alt="npm logo"  />
 </div>
 
+<div align="center">
+  <a href="https://tr0lgar.github.io/toolzy-doc/" target="_blank">
+    <img src="https://img.shields.io/badge/Documentation-00C7B7?style=for-the-badge&logo=bookstack&logoColor=white" alt="Documentation" height="30" />
+  </a>
+  <img width="12" />
+  <a href="https://www.npmjs.com/package/toolzy" target="_blank">
+    <img src="https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM Package" height="30" />
+  </a>
+</div>
+
 ---
 
 <h2>Table of content</h2>
@@ -23,6 +33,7 @@
   - [Installation](#installation)
   - [Testing](#-testing)
 - [Use Toolzy in your projects](#use-toolzy-in-your-projects)
+- [Documentation](#-documentation)
 - [Project Structure](#-project-structure)
 - [License](#-license)
 
@@ -89,6 +100,10 @@ Using npm:
     const number = randomInt(0, 10);
     ```
 
+### 🔗 Documentation
+- **Documentation** : [https://tr0lgar.github.io/toolzy-doc/](https://tr0lgar.github.io/toolzy-doc/)
+- **NPM Package** : [https://www.npmjs.com/package/toolzy](https://www.npmjs.com/package/toolzy)
+    
 ### 📁 Project Structure
 ```
 toolzy/
