@@ -8,7 +8,7 @@
     </div>
     <div class="lib-content">
         <div class="lib-description">
-             Shuffles the elements of the given array in a random order and returns a new array.  
+             Shuffles the elements of the given array in a random order and returns a new array.   shuffleArray([1, 2, 3]); // Returns [3, 1, 2] 
         </div>
         <h4>Parameters:</h4>
         <ul style="color: var(--text-secondary); margin-left: 2rem;">
@@ -21,6 +21,119 @@
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <code>import { shuffleArray } from 'toolzy';<br><br>// Example usage:<br>console.log(shuffleArray(arr));</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lib-item">
+    <div class="lib-header" onclick="toggleLib(this)">
+        <div>
+            <span class="lib-name">removeDuplicates(arr, T[])</span>
+            <span class="lib-type">→ T[] </span>
+        </div>
+        <span class="lib-arrow">▼</span>
+    </div>
+    <div class="lib-content">
+        <div class="lib-description">
+             Supprime les doublons d'un tableau et retourne un nouveau tableau sans doublons.   removeDuplicates([1, 2, 2, 3]); // Returns [1, 2, 3] 
+        </div>
+        <h4>Parameters:</h4>
+        <ul style="color: var(--text-secondary); margin-left: 2rem;">
+            <li><code>arr</code> (T[]) - Le tableau d'entrée contenant potentiellement des doublons.</li>
+        </ul>
+        <h4>Returns:</h4>
+        <p>Un nouveau tableau contenant les éléments uniques du tableau d'entrée.</p>
+        <div class="lib-example">
+            <strong>Example:</strong>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <code>import { removeDuplicates } from 'toolzy';<br><br>// Example usage:<br>console.log(removeDuplicates(arr));</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lib-item">
+    <div class="lib-header" onclick="toggleLib(this)">
+        <div>
+            <span class="lib-name">intersect(arrayA, T[], T[])</span>
+            <span class="lib-type">→ T[] </span>
+        </div>
+        <span class="lib-arrow">▼</span>
+    </div>
+    <div class="lib-content">
+        <div class="lib-description">
+             Returns a new array containing only the elements that are present in both arrays.   intersect([1, 2, 3], [2, 3, 4]); // Returns [2, 3] 
+        </div>
+        <h4>Parameters:</h4>
+        <ul style="color: var(--text-secondary); margin-left: 2rem;">
+            
+        </ul>
+        <h4>Returns:</h4>
+        <p>Returns a T[] </p>
+        <div class="lib-example">
+            <strong>Example:</strong>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <code>import { intersect } from 'toolzy';<br><br>// Example usage:<br>console.log(intersect(arrayA, arrayB));</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lib-item">
+    <div class="lib-header" onclick="toggleLib(this)">
+        <div>
+            <span class="lib-name">difference(arrayA, T[], T[])</span>
+            <span class="lib-type">→ T[] </span>
+        </div>
+        <span class="lib-arrow">▼</span>
+    </div>
+    <div class="lib-content">
+        <div class="lib-description">
+             Returns a new array containing elements from the first array that are not present in the second.   difference([1, 2, 3], [2, 3, 4]); // Returns [1] 
+        </div>
+        <h4>Parameters:</h4>
+        <ul style="color: var(--text-secondary); margin-left: 2rem;">
+            
+        </ul>
+        <h4>Returns:</h4>
+        <p>Returns a T[] </p>
+        <div class="lib-example">
+            <strong>Example:</strong>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <code>import { difference } from 'toolzy';<br><br>// Example usage:<br>console.log(difference(arrayA, arrayB));</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lib-item">
+    <div class="lib-header" onclick="toggleLib(this)">
+        <div>
+            <span class="lib-name">formatDate(date, Date, string)</span>
+            <span class="lib-type">→ string </span>
+        </div>
+        <span class="lib-arrow">▼</span>
+    </div>
+    <div class="lib-content">
+        <div class="lib-description">
+             Formats a JavaScript Date object into a string based on a custom pattern.  Supported tokens:  Year: - YYYY: 4-digit year (e.g., 2025) - YY: 2-digit year (e.g., 25)  Month: - MMMM: Full month name (e.g., January) - MMM: Abbreviated month name (e.g., Jan) - MM: Month with leading zero (e.g., 01) - M: Month without leading zero (e.g., 1)  Day: - DD: Day of the month with leading zero (e.g., 05) - D: Day of the month without leading zero (e.g., 5) - dddd: Full weekday name (e.g., Monday) - ddd: Abbreviated weekday name (e.g., Mon)  Hours: - HH: Hours (24h format, leading zero) (e.g., 09, 23) - H: Hours (24h format, no leading zero) (e.g., 9, 23) - hh: Hours (12h format, leading zero) (e.g., 09, 11) - h: Hours (12h format, no leading zero) (e.g., 9, 11)  Minutes: - mm: Minutes with leading zero (e.g., 04) - m: Minutes without leading zero (e.g., 4)  Seconds: - ss: Seconds with leading zero (e.g., 07) - s: Seconds without leading zero (e.g., 7)  Meridiem: - A: AM/PM - a: am/pm   formatDate(new Date(), 'YYYY-MM-DD') // "2025-05-27" formatDate(new Date(), 'ddd, MMM D, YY at hh:mm A') // "Tue, May 27, 25 at 03:16 PM" 
+        </div>
+        <h4>Parameters:</h4>
+        <ul style="color: var(--text-secondary); margin-left: 2rem;">
+            <li><code>date</code> (Date) - The Date object to format.</li>
+<li><code>format</code> (string) - A format string containing supported tokens.</li>
+        </ul>
+        <h4>Returns:</h4>
+        <p>Returns a string </p>
+        <div class="lib-example">
+            <strong>Example:</strong>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <code>import { formatDate } from 'toolzy';<br><br>// Example usage:<br>console.log(formatDate(date, format));</code>
             </div>
         </div>
     </div>
@@ -65,7 +178,7 @@
     </div>
     <div class="lib-content">
         <div class="lib-description">
-             Capitalizes the first letter of the given string.  
+             Capitalizes the first letter of the given string.   capitalizeFirst('hello'); // Returns 'Hello' 
         </div>
         <h4>Parameters:</h4>
         <ul style="color: var(--text-secondary); margin-left: 2rem;">
@@ -93,7 +206,7 @@
     </div>
     <div class="lib-content">
         <div class="lib-description">
-             Converts a given string into a URL-friendly slug by normalizing characters, removing diacritics, and replacing spaces and special characters with a hyphen.  
+             Converts a given string into a URL-friendly slug by normalizing characters, removing diacritics, and replacing spaces and special characters with a hyphen.   slugify('Hello World'); // Returns 'hello-world' 
         </div>
         <h4>Parameters:</h4>
         <ul style="color: var(--text-secondary); margin-left: 2rem;">
@@ -106,6 +219,34 @@
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <code>import { slugify } from 'toolzy';<br><br>// Example usage:<br>console.log(slugify(text));</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lib-item">
+    <div class="lib-header" onclick="toggleLib(this)">
+        <div>
+            <span class="lib-name">truncate(str, string, number, string = '…')</span>
+            <span class="lib-type">→ string </span>
+        </div>
+        <span class="lib-arrow">▼</span>
+    </div>
+    <div class="lib-content">
+        <div class="lib-description">
+             Truncates a string to a specified maximum length, optionally adding a suffix.   truncate('Hello, world!', 10)); //returns "Hello, w…" truncate('1234567890', 5, '___'); returns "12___" 
+        </div>
+        <h4>Parameters:</h4>
+        <ul style="color: var(--text-secondary); margin-left: 2rem;">
+            
+        </ul>
+        <h4>Returns:</h4>
+        <p>Returns a string </p>
+        <div class="lib-example">
+            <strong>Example:</strong>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <code>import { truncate } from 'toolzy';<br><br>// Example usage:<br>console.log(truncate(str, maxLength, suffix));</code>
             </div>
         </div>
     </div>
