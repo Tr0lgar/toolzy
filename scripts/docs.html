@@ -120,7 +120,7 @@
     </div>
     <div class="lib-content">
         <div class="lib-description">
-             Formats a JavaScript Date object into a string based on a custom pattern.  Supported tokens:  Year: - YYYY: 4-digit year (e.g., 2025) - YY: 2-digit year (e.g., 25)  Month: - MMMM: Full month name (e.g., January) - MMM: Abbreviated month name (e.g., Jan) - MM: Month with leading zero (e.g., 01) - M: Month without leading zero (e.g., 1)  Day: - DD: Day of the month with leading zero (e.g., 05) - D: Day of the month without leading zero (e.g., 5) - dddd: Full weekday name (e.g., Monday) - ddd: Abbreviated weekday name (e.g., Mon)  Hours: - HH: Hours (24h format, leading zero) (e.g., 09, 23) - H: Hours (24h format, no leading zero) (e.g., 9, 23) - hh: Hours (12h format, leading zero) (e.g., 09, 11) - h: Hours (12h format, no leading zero) (e.g., 9, 11)  Minutes: - mm: Minutes with leading zero (e.g., 04) - m: Minutes without leading zero (e.g., 4)  Seconds: - ss: Seconds with leading zero (e.g., 07) - s: Seconds without leading zero (e.g., 7)  Meridiem: - A: AM/PM - a: am/pm   formatDate(new Date(), 'YYYY-MM-DD') // "2025-05-27" formatDate(new Date(), 'ddd, MMM D, YY at hh:mm A') // "Tue, May 27, 25 at 03:16 PM" 
+             Formats a JavaScript Date object into a string based on a custom pattern.  Supported tokens:  Year: - YYYY: 4-digit year (e.g., 2025) - YY: 2-digit year (e.g., 25)  Month: - MMMM: Full month name (e.g., January) - MMM: Abbreviated month name (e.g., Jan) - MM: Month with leading zero (e.g., 01) - M: Month without leading zero (e.g., 1)  Day: - DD: Day of the month with leading zero (e.g., 05) - D: Day of the month without leading zero (e.g., 5) - dddd: Full weekday name (e.g., Monday) - ddd: Abbreviated weekday name (e.g., Mon)  Hours: - HH: Hours (24h format, leading zero) (e.g., 09, 23) - H: Hours (24h format, no leading zero) (e.g., 9, 23) - hh: Hours (12h format, leading zero) (e.g., 09, 11) - h: Hours (12h format, no leading zero) (e.g., 9, 11)  Minutes: - mm: Minutes with leading zero (e.g., 04) - m: Minutes without leading zero (e.g., 4)  Seconds: - ss: Seconds with leading zero (e.g., 07) - s: Seconds without leading zero (e.g., 7)  Meridiem: - A: AM/PM - a: am/pm   formatDate(new Date(), 'YYYY-MM-DD') // "2025-05-27" formatDate(new Date(), 'ddd, MMM D, YY hh:mm A') // "Tue, May 27, 25 03:16 PM" 
         </div>
         <h4>Parameters:</h4>
         <ul style="color: var(--text-secondary); margin-left: 2rem;">
@@ -227,14 +227,14 @@
 <div class="lib-item">
     <div class="lib-header" onclick="toggleLib(this)">
         <div>
-            <span class="lib-name">truncate(str, string, number, string = '…')</span>
+            <span class="lib-name">truncate(str, string, number, string = '...')</span>
             <span class="lib-type">→ string </span>
         </div>
         <span class="lib-arrow">▼</span>
     </div>
     <div class="lib-content">
         <div class="lib-description">
-             Truncates a string to a specified maximum length, optionally adding a suffix.   truncate('Hello, world!', 10)); //returns "Hello, w…" truncate('1234567890', 5, '___'); returns "12___" 
+             Truncates a string to a specified maximum length, optionally adding a suffix.   truncate('Hello, world!', 10)); //returns "Hello, ..." truncate('1234567890', 5, '___'); returns "12___" 
         </div>
         <h4>Parameters:</h4>
         <ul style="color: var(--text-secondary); margin-left: 2rem;">

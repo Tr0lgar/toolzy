@@ -40,14 +40,17 @@ export function slugify(text: string): string {
  * @return The truncated string with suffix if needed.
  *
  * @example
- * truncate('Hello, world!', 10)); //returns "Hello, w…"
+ * truncate('Hello, world!', 10)); //returns "Hello, ..."
  * truncate('1234567890', 5, '___'); returns "12___"
  */
-export function truncate(str: string, maxLength: number, suffix: string = '…'): string {
+export function truncate(str: string, maxLength: number, suffix: string = '...'): string {
     if (str.length <= maxLength) return str;
 
+    if (maxLength <= 0) return '';
+
     const truncatedLength = maxLength - suffix.length;
-    if (truncatedLength <= 0) return suffix.slice(0, maxLength); // Edge case
+
+    if (truncatedLength <= 0) return suffix;
 
     return str.slice(0, truncatedLength) + suffix;
 }

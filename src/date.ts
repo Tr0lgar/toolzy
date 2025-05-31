@@ -43,7 +43,7 @@
  *
  * @example
  * formatDate(new Date(), 'YYYY-MM-DD') // "2025-05-27"
- * formatDate(new Date(), 'ddd, MMM D, YY at hh:mm A') // "Tue, May 27, 25 at 03:16 PM"
+ * formatDate(new Date(), 'ddd, MMM D, YY hh:mm A') // "Tue, May 27, 25 03:16 PM"
  */
 export function formatDate(date: Date, format: string): string {
     const pad = (n: number, size = 2): string => n.toString().padStart(size, '0');

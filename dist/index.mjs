@@ -14,10 +14,11 @@ function capitalizeFirst(str) {
 function slugify(text) {
   return text.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
 }
-function truncate(str, maxLength, suffix = "\u2026") {
+function truncate(str, maxLength, suffix = "...") {
   if (str.length <= maxLength) return str;
+  if (maxLength <= 0) return "";
   const truncatedLength = maxLength - suffix.length;
-  if (truncatedLength <= 0) return suffix.slice(0, maxLength);
+  if (truncatedLength <= 0) return suffix;
   return str.slice(0, truncatedLength) + suffix;
 }
 

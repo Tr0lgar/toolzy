@@ -37,7 +37,7 @@ declare function slugify(text: string): string;
  * @return The truncated string with suffix if needed.
  *
  * @example
- * truncate('Hello, world!', 10)); //returns "Hello, w…"
+ * truncate('Hello, world!', 10)); //returns "Hello, ..."
  * truncate('1234567890', 5, '___'); returns "12___"
  */
 declare function truncate(str: string, maxLength: number, suffix?: string): string;
@@ -130,7 +130,7 @@ declare function difference<T>(arrayA: T[], arrayB: T[]): T[];
  *
  * @example
  * formatDate(new Date(), 'YYYY-MM-DD') // "2025-05-27"
- * formatDate(new Date(), 'ddd, MMM D, YY at hh:mm A') // "Tue, May 27, 25 at 03:16 PM"
+ * formatDate(new Date(), 'ddd, MMM D, YY hh:mm A') // "Tue, May 27, 25 03:16 PM"
  */
 declare function formatDate(date: Date, format: string): string;
 
