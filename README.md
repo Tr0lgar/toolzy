@@ -28,11 +28,11 @@
 <h2>Table of content</h2>
 
 - [Overview](#overview)
+- [Use Toolzy in your projects](#use-toolzy-in-your-projects)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Testing](#-testing)
-- [Use Toolzy in your projects](#use-toolzy-in-your-projects)
 - [Documentation](#-documentation)
 - [Project Structure](#-project-structure)
 - [License](#-license)
@@ -54,6 +54,20 @@ core features include:
 - **🔢 Random Number Generation:** Generates random integers.
 - **🛠️ TypeScript Support:** Ensures type safety and adherence to modern JavaScript standards for better code quality.
 - **📦 Lightweight and Modular:** Easily integrates into existing projects, promoting a clean and maintainable codebase.
+
+### Use Toolzy in your projects
+1. Install the dependency into your project:  
+   Using npm:
+   ```bash
+   > npm install toolzy
+   ```
+2. Import the methods needed in you project files:  
+   For example:
+    ```ts
+    import { randomInt } from 'toolzy';
+   
+    const number = randomInt(0, 10);
+    ```
 
 ### Getting Started
 #### Prerequisites
@@ -85,20 +99,6 @@ Using npm:
 ```bash
 > npm test
 ```
-
-### Use Toolzy in your projects
-1. Install the dependency into your project:  
-   Using npm:
-   ```bash
-   > npm install toolzy
-   ```
-2. Import the methods needed in you project files:  
-    For example:
-    ```ts
-    import { randomInt } from 'toolzy';
-   
-    const number = randomInt(0, 10);
-    ```
 
 ### 🔗 Documentation
 - **Documentation** : [https://tr0lgar.github.io/toolzy-doc/](https://tr0lgar.github.io/toolzy-doc/)
