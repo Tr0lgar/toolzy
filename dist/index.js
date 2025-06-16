@@ -74,10 +74,6 @@ function difference(arrayA, arrayB) {
 
 // src/date.ts
 function formatDate(date, format) {
-  const pad = (n, size = 2) => n.toString().padStart(size, "0");
-  const hours24 = date.getHours();
-  const hours12 = hours24 % 12 || 12;
-  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const monthNames = [
     "January",
     "February",
@@ -92,29 +88,127 @@ function formatDate(date, format) {
     "November",
     "December"
   ];
-  const replacements = {
-    "YYYY": date.getFullYear().toString(),
-    "YY": date.getFullYear().toString().slice(-2),
-    "MMMM": monthNames[date.getMonth()],
-    "MMM": monthNames[date.getMonth()].slice(0, 3),
-    "MM": pad(date.getMonth() + 1),
-    "M": (date.getMonth() + 1).toString(),
-    "DD": pad(date.getDate()),
-    "D": date.getDate().toString(),
-    "dddd": dayNames[date.getDay()],
-    "ddd": dayNames[date.getDay()].slice(0, 3),
-    "HH": pad(hours24),
-    "H": hours24.toString(),
-    "hh": pad(hours12),
-    "h": hours12.toString(),
-    "mm": pad(date.getMinutes()),
-    "m": date.getMinutes().toString(),
-    "ss": pad(date.getSeconds()),
-    "s": date.getSeconds().toString(),
-    "A": hours24 < 12 ? "AM" : "PM",
-    "a": hours24 < 12 ? "am" : "pm"
+  const monthNamesShort = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+  const dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  const dayNamesShort = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ];
+  const getDateValues = (date2) => {
+    const year = date2.getFullYear();
+    const month = date2.getMonth();
+    const day = date2.getDate();
+    const weekday = date2.getDay();
+    const hours = date2.getHours();
+    const minutes = date2.getMinutes();
+    const seconds = date2.getSeconds();
+    const hours12 = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
+    const meridiem = hours >= 12 ? "PM" : "AM";
+    return {
+      year,
+      month,
+      day,
+      weekday,
+      hours,
+      minutes,
+      seconds,
+      hours12,
+      meridiem
+    };
   };
-  return format.replace(/YYYY|YY|MMMM|MMM|MM|M|DD|D|dddd|ddd|HH|H|hh|h|mm|m|ss|s|A|a/g, (match) => replacements[match]);
+  const replaceToken = (token, values2) => {
+    switch (token) {
+      case "YYYY":
+        return values2.year.toString();
+      case "YY":
+        return (values2.year % 100).toString().padStart(2, "0");
+      case "MMMM":
+        return monthNames[values2.month];
+      case "MMM":
+        return monthNamesShort[values2.month];
+      case "MM":
+        return (values2.month + 1).toString().padStart(2, "0");
+      case "M":
+        return (values2.month + 1).toString();
+      case "DD":
+        return values2.day.toString().padStart(2, "0");
+      case "D":
+        return values2.day.toString();
+      case "dddd":
+        return dayNames[values2.weekday];
+      case "ddd":
+        return dayNamesShort[values2.weekday];
+      case "HH":
+        return values2.hours.toString().padStart(2, "0");
+      case "H":
+        return values2.hours.toString();
+      case "hh":
+        return values2.hours12.toString().padStart(2, "0");
+      case "h":
+        return values2.hours12.toString();
+      case "mm":
+        return values2.minutes.toString().padStart(2, "0");
+      case "m":
+        return values2.minutes.toString();
+      case "ss":
+        return values2.seconds.toString().padStart(2, "0");
+      case "s":
+        return values2.seconds.toString();
+      case "A":
+        return values2.meridiem;
+      case "a":
+        return values2.meridiem.toLowerCase();
+      default:
+        return token;
+    }
+  };
+  const values = getDateValues(date);
+  const separators = /[,\-\/ :.]/;
+  let result = "";
+  let i = 0;
+  while (i < format.length) {
+    const char = format[i];
+    if (separators.test(char)) {
+      result += char;
+      i++;
+    } else {
+      let currentToken = "";
+      while (i < format.length && !separators.test(format[i])) {
+        currentToken += format[i];
+        i++;
+      }
+      if (currentToken) {
+        result += replaceToken(currentToken, values);
+      }
+    }
+  }
+  return result;
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
