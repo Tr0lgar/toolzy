@@ -46,40 +46,108 @@
  * formatDate(new Date(), 'ddd, MMM D, YY hh:mm A') // "Tue, May 27, 25 03:16 PM"
  */
 export function formatDate(date: Date, format: string): string {
-    const pad = (n: number, size = 2): string => n.toString().padStart(size, '0');
-
-    const hours24 = date.getHours();
-    const hours12 = hours24 % 12 || 12;
-
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthNames = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
-    const replacements: Record<string, string> = {
-        'YYYY': date.getFullYear().toString(),
-        'YY': date.getFullYear().toString().slice(-2),
-        'MMMM': monthNames[date.getMonth()],
-        'MMM': monthNames[date.getMonth()].slice(0, 3),
-        'MM': pad(date.getMonth() + 1),
-        'M': (date.getMonth() + 1).toString(),
-        'DD': pad(date.getDate()),
-        'D': date.getDate().toString(),
-        'dddd': dayNames[date.getDay()],
-        'ddd': dayNames[date.getDay()].slice(0, 3),
-        'HH': pad(hours24),
-        'H': hours24.toString(),
-        'hh': pad(hours12),
-        'h': hours12.toString(),
-        'mm': pad(date.getMinutes()),
-        'm': date.getMinutes().toString(),
-        'ss': pad(date.getSeconds()),
-        's': date.getSeconds().toString(),
-        'A': hours24 < 12 ? 'AM' : 'PM',
-        'a': hours24 < 12 ? 'am' : 'pm'
+    const monthNamesShort = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
+    const dayNames = [
+        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+    ];
+
+    const dayNamesShort = [
+        'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
+    ];
+
+    // Fonction pour obtenir les valeurs de date
+    const getDateValues = (date: Date) => {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+        const weekday = date.getDay();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+
+        const hours12 = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
+        const meridiem = hours >= 12 ? 'PM' : 'AM';
+
+        return {
+            year,
+            month,
+            day,
+            weekday,
+            hours,
+            minutes,
+            seconds,
+            hours12,
+            meridiem
+        };
     };
 
+    // Function to replace a token with its value
+    const replaceToken = (token: string, values: ReturnType<typeof getDateValues>): string => {
+        switch (token) {
+            case 'YYYY': return values.year.toString();
+            case 'YY': return (values.year % 100).toString().padStart(2, '0');
 
-    return format.replace(/YYYY|YY|MMMM|MMM|MM|M|DD|D|dddd|ddd|HH|H|hh|h|mm|m|ss|s|A|a/g, match => replacements[match]);
+            case 'MMMM': return monthNames[values.month];
+            case 'MMM': return monthNamesShort[values.month];
+            case 'MM': return (values.month + 1).toString().padStart(2, '0');
+            case 'M': return (values.month + 1).toString();
+
+            case 'DD': return values.day.toString().padStart(2, '0');
+            case 'D': return values.day.toString();
+            case 'dddd': return dayNames[values.weekday];
+            case 'ddd': return dayNamesShort[values.weekday];
+
+            case 'HH': return values.hours.toString().padStart(2, '0');
+            case 'H': return values.hours.toString();
+            case 'hh': return values.hours12.toString().padStart(2, '0');
+            case 'h': return values.hours12.toString();
+
+            case 'mm': return values.minutes.toString().padStart(2, '0');
+            case 'm': return values.minutes.toString();
+
+            case 'ss': return values.seconds.toString().padStart(2, '0');
+            case 's': return values.seconds.toString();
+
+            case 'A': return values.meridiem;
+            case 'a': return values.meridiem.toLowerCase();
+
+            default: return token;
+        }
+    };
+
+    const values = getDateValues(date);
+    const separators = /[,\-\/ :.]/;
+    let result = '';
+    let i = 0;
+
+    while (i < format.length) {
+        const char = format[i];
+
+        if (separators.test(char)) {
+            result += char;
+            i++;
+        } else {
+            let currentToken = '';
+
+            while (i < format.length && !separators.test(format[i])) {
+                currentToken += format[i];
+                i++;
+            }
+
+            if (currentToken) {
+                result += replaceToken(currentToken, values);
+            }
+        }
+    }
+
+    return result;
 }
